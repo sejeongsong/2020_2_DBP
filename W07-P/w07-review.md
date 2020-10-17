@@ -7,9 +7,18 @@
 # 2. 문제가 발생하거나 고민한 내용 + 해결과정
 - 이번 시간에는 별다른 큰 문제는 없었다.
 
-# 3. 추가한 페이지
+# 3. 추가한 웹 페이지
 - 영상 링크 : https://drive.google.com/file/d/1kzrrkU91j-wFevLt52FTV1F2V7R_YtsW/view?usp=sharing
-- 퇴사하지 않은 신입 사원을 소개하는 페이지이다.
+- 퇴사하지 않은 신입 사원을 소개하는 웹 페이지이다.
+-   SELECT e.first_name, e.last_name, e.hire_date, d.dept_name, t.title
+    FROM dept_emp de
+    INNER JOIN employees e on e.emp_no=de.emp_no
+    LEFT JOIN departments d on d.dept_no=de.dept_no
+    INNER JOIN salaries s on s.emp_no=e.emp_no
+    LEFT JOIN titles t on t.emp_no=e.emp_no
+    WHERE s.to_date='9999-01-01'
+    ORDER BY e.hire_date DESC LIMIT 10
+    ;
 
 
 # 4. 회고
