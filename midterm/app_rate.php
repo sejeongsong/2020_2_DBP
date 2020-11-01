@@ -49,15 +49,7 @@
             font-family: Consolas, monospace;
             font-family: 12px;
         }
-        /*
-        table{
-            width: 100%;
-        }
-        th, td{
-            padding: 10px;
-            border-bottom: 1px solid #dadada;
-        }
-        */
+
     </style>
 </head>
 
