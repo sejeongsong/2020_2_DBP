@@ -49,7 +49,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Top100 Apps</title>
+    <title>Search Result</title>
     <style>
         body{
             font-family: Consolas, monospace;

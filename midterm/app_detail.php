@@ -85,7 +85,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Top100 Apps</title>
+    <title><?=$filtered_id?></title>
     <style>
         body{
             font-family: Consolas, monospace;

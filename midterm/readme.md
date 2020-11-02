@@ -23,4 +23,4 @@
     + 앱 상세정보와 긍정적, 중립적, 부정적 후기의 갯수와 후기 내용을 조회할 수 있다.
 
 # 3. 동작 화면 소개 영상
-https://drive.google.com/file/d/1ttUKllVZ7_lGZOgnscRh2d6kLbCxc8wa/view?usp=sharing
+https://drive.google.com/file/d/1b3jQN8IQ9pcKGbCg9ZBXN0Swh-JFnUBs/view?usp=sharing
