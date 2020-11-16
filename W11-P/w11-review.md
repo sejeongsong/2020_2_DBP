@@ -1,22 +1,23 @@
-#1. »õ·Î ¹è¿î ³»¿ë
-	-Æ®·£Àè¼Ç(rollback&commit / ¿øÀÚ¼º, ÀÏ°ü¼º, µ¶¸³¼º, Áö¼Ó¼º)
-	-Ä¿¹ÔÇÑ µÚ ¿À·ù¸¦ ¹ß°ßÇÏ°Ô µÇ¸é ¿À¶óÅ¬DB¿¡¼­ Á¦°øÇÏ´Â ¹é¾÷ ±â´É »ç¿ë
-	-jdbc sqlÄõ¸® Àü¼Û ÀÎÅÍÆäÀÌ½º
-		+PreparedStatement¸¦ °¡Àå ¸¹ÀÌ »ç¿ë
-		+PreparedStatement pstm = conn.prepareStatement(¡°select * from T where a = ?¡±);//? : À§Ä¡ È¦´õ
-		 pstm.setString(1, "À§Ä¡È¦´õÀÇ °ª");
+# 1. ìƒˆë¡œ ë°°ìš´ ë‚´ìš©
+	- íŠ¸ëžœìž­ì…˜(rollback&commit / ì›ìžì„±, ì¼ê´€ì„±, ë…ë¦½ì„±, ì§€ì†ì„±)
+	- ì»¤ë°‹í•œ ë’¤ ì˜¤ë¥˜ë¥¼ ë°œê²¬í•˜ê²Œ ë˜ë©´ ì˜¤ë¼í´DBì—ì„œ ì œê³µí•˜ëŠ” ë°±ì—… ê¸°ëŠ¥ ì‚¬ìš©
+	- jdbc sqlì¿¼ë¦¬ ì „ì†¡ ì¸í„°íŽ˜ì´ìŠ¤
+		+ PreparedStatementë¥¼ ê°€ìž¥ ë§Žì´ ì‚¬ìš©
+		+ PreparedStatement pstm = conn.prepareStatement(â€œselect * from T where a = ?â€);//? : ìœ„ì¹˜ í™€ë”
+		 pstm.setString(1, "ìœ„ì¹˜í™€ë”ì˜ ê°’");
 		 ResultSet rs = pstm.executeQuery();
-		+statement´Â ÇÁ·Î±×·¥ ½ÇÇà½Ã¸¶´Ù ¼­¹ö¿¡¼­ ºÐ¼®ÇÏÁö¸¸ preparedstatement´Â Àç»ç¿ë °¡´É
-		+preparedstatement´Â ¹Ì¸® ÄÄÆÄÀÏµÇ¾î ½ÇÇà ¼Óµµ°¡ ºü¸§
-		+preparedstatement´Â µ¿Àû Äõ¸® Ã³¸® °¡´É
-		+"", ''·Î º¸¾È Ã³¸® °¡´É
-		+¹Ýµå½Ã ¿¹¿ÜÃ³¸®(try catch, throws)
-	-¿¬°á ÇØÁ¦¸¦ ÇÔ¼ö¿¡¼­ ÇÏ¸é ÇÔ¼ö¸¶´Ù ´Ù½Ã DB¿¡ ¿¬°áÇØ¾ß ÇÑ´Ù.
-	-¸®ÆÑÅä¸µ(ÇÔ¼ö ½ÇÇà½Ã¸¶´Ù db¸¦ ¿¬°áÇÏ°í Á¾·áÇØ¼­ ÀÚ¿ø ¹Ý³³)
-#2. ¹®Á¦°¡ ¹ß»ýÇÏ°Å³ª °í¹ÎÇÑ ³»¿ë
-	-°úÁ¦ µµÁß ½Ç¼ö·Î Å¸ÀÔÀÌ ¸ÂÁö ¾Ê´Â Àß¸øµÈ µ¥ÀÌÅÍ¸¦ Ãß°¡ÇÏ¿´´Âµ¥ »èÁ¦ÇÏ±â À§ÇØ Test.delete()¸¦ »ç¿ëÇßÀ¸³ª µ¥ÀÌÅÍ¿¡ Á¢±ÙÀÌ µÇÁö ¾Ê¾Ò°í sqldeveloper¿¡¼­µµ ¶ßÁö ¾Ê¾Ò´Ù. ÄÄÇ»ÅÍ¸¦ ÀçºÎÆÃÇÏ´Ï Á¢±ÙÀÌ µÇ¾î »èÁ¦ÇÒ ¼ö ÀÖ¾ú´Ù.
-#3. È¸°í
-	-½ÇÇà ¿µ»ó : https://drive.google.com/file/d/1LUbN0GvD6SzFQc4125RKXKWlKhNkwKdW/view?usp=sharing
-	-+ÀÚ¹Ù¿Í Æ®·£Àè¼ÇÀÇ °³³äÀ» º¹½ÀÇÒ ¼ö ÀÖ¾ú´Ù.
-	--ÄÚµå°¡ ¾ÆÁ÷ ÀÍ¼÷ÇÏÁö ¾ÊÀº ºÎºÐµµ ÀÖ¾ú°í ÀÚ¹Ù¸¦ ³Ê¹« ¿À·£¸¸¿¡ Á¢ÇØ ¾î·Á¿ü´Ù. ÀÌÁ¦ Á¹¾÷µµ ´Ù°¡¿À´Âµ¥ ºÎÁ·ÇÑ Á¡ÀÌ ³Ê¹« ¸¹¾Æ ¹Ý¼ºÀÌ µÈ´Ù. 
-	-!´õ °øºÎÇØ¾ß°Ú´Ù. 
+		+ statementëŠ” í”„ë¡œê·¸ëž¨ ì‹¤í–‰ì‹œë§ˆë‹¤ ì„œë²„ì—ì„œ ë¶„ì„í•˜ì§€ë§Œ preparedstatementëŠ” ìž¬ì‚¬ìš© ê°€ëŠ¥
+		+ preparedstatementëŠ” ë¯¸ë¦¬ ì»´íŒŒì¼ë˜ì–´ ì‹¤í–‰ ì†ë„ê°€ ë¹ ë¦„
+		+ preparedstatementëŠ” ë™ì  ì¿¼ë¦¬ ì²˜ë¦¬ ê°€ëŠ¥
+		+ "", ''ë¡œ ë³´ì•ˆ ì²˜ë¦¬ ê°€ëŠ¥
+		+ ë°˜ë“œì‹œ ì˜ˆì™¸ì²˜ë¦¬(try catch, throws)
+	- ì—°ê²° í•´ì œë¥¼ í•¨ìˆ˜ì—ì„œ í•˜ë©´ í•¨ìˆ˜ë§ˆë‹¤ ë‹¤ì‹œ DBì— ì—°ê²°í•´ì•¼ í•œë‹¤.
+	- ë¦¬íŒ©í† ë§(í•¨ìˆ˜ ì‹¤í–‰ì‹œë§ˆë‹¤ dbë¥¼ ì—°ê²°í•˜ê³  ì¢…ë£Œí•´ì„œ ìžì› ë°˜ë‚©)
+# 2. ë¬¸ì œê°€ ë°œìƒí•˜ê±°ë‚˜ ê³ ë¯¼í•œ ë‚´ìš©
+	- ê³¼ì œ ë„ì¤‘ ì‹¤ìˆ˜ë¡œ íƒ€ìž…ì´ ë§žì§€ ì•ŠëŠ” ìž˜ëª»ëœ ë°ì´í„°ë¥¼ ì¶”ê°€í•˜ì˜€ëŠ”ë° ì‚­ì œí•˜ê¸° ìœ„í•´ Test.delete()ë¥¼ ì‚¬ìš©í–ˆìœ¼ë‚˜ ë°ì´í„°ì— ì ‘ê·¼ì´ ë˜ì§€ ì•Šì•˜ê³  sqldeveloperì—ì„œë„ ëœ¨ì§€ ì•Šì•˜ë‹¤. ì»´í“¨í„°ë¥¼ ìž¬ë¶€íŒ…í•˜ë‹ˆ ì ‘ê·¼ì´ ë˜ì–´ ì‚­ì œí•  ìˆ˜ ìžˆì—ˆë‹¤.
+	- ì´í´ë¦½ìŠ¤ì—ì„œ mdíŒŒì¼ì„ ìž‘ì„±í–ˆë”ë‹ˆ ë‹¤ ê¹¨ì ¸ì„œ ì¸ì½”ë”© ë°©ì‹ì„ UTF-8ë¡œ ë³€ê²½í•˜ì˜€ë‹¤.
+# 3. íšŒê³ 
+	- ì‹¤í–‰ ì˜ìƒ : https://drive.google.com/file/d/1LUbN0GvD6SzFQc4125RKXKWlKhNkwKdW/view?usp=sharing
+	- +ìžë°”ì™€ íŠ¸ëžœìž­ì…˜ì˜ ê°œë…ì„ ë³µìŠµí•  ìˆ˜ ìžˆì—ˆë‹¤.
+	- -ì½”ë“œê°€ ì•„ì§ ìµìˆ™í•˜ì§€ ì•Šì€ ë¶€ë¶„ë„ ìžˆì—ˆê³  ìžë°”ë¥¼ ë„ˆë¬´ ì˜¤ëžœë§Œì— ì ‘í•´ ì–´ë ¤ì› ë‹¤. ì´ì œ ì¡¸ì—…ë„ ë‹¤ê°€ì˜¤ëŠ”ë° ë¶€ì¡±í•œ ì ì´ ë„ˆë¬´ ë§Žì•„ ë°˜ì„±ì´ ëœë‹¤. 
+	- !ë” ê³µë¶€í•´ì•¼ê² ë‹¤. 
